@@ -1,10 +1,13 @@
 import React, { FC, memo } from 'react';
 import Particles from 'react-particles-js';
+import { useTheme } from 'styled-components';
 
 const ParticlesBg: FC = () => {
+  const { bg } = useTheme();
   return (
     <Particles
       height={'100vh'}
+      style={{ background: bg.primary }}
       params={{
         fps_limit: 28,
         particles: {

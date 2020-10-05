@@ -1,14 +1,12 @@
 import styled from 'styled-components';
 
-import ParticlesBg from '@components/particles';
-import Social from '@components/socials';
-import NavBar from '@components/nav';
+import ParticlesBg from '@components/Particles';
+import Social from '@components/Socials';
 
 const Wrapper = styled.div`
   position: relative,
   width: 100%,
   height: 100vh,
-  background: ${({ theme }) => theme.colors.background},
 `;
 
 const AboutMeWrapper = styled.div`
@@ -16,6 +14,9 @@ const AboutMeWrapper = styled.div`
   top: 30%;
   left: 50%;
   transform: translateX(-50%);
+  h1 {
+    color: ${({ theme }) => theme.text.primary};
+  }
 `;
 
 export default function About() {

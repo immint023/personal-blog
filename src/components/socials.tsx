@@ -4,6 +4,9 @@ import styled from 'styled-components';
 const WrapperSocial = styled.div`
   display: flex;
   justify-content: space-around;
+  a {
+    color: ${({ theme }) => theme.text.primary};
+  }
 `;
 
 const Social = () => {

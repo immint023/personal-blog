@@ -14,8 +14,9 @@ const NavBarWrapper = styled.div`
 
 const NavItem = styled.a<{ active: boolean }>`
   margin: 6px;
-  font-size: ${({ theme }) => theme.fontSizes.med};
+  font-size: ${({ theme }) => theme.fontSizes.heading};
   text-decoration: ${(props) => (props.active ? 'underline' : 'none')};
+  color: ${({ theme }) => theme.text.primary};
 `;
 
 const paths: IPath[] = [

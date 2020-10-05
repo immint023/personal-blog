@@ -1,25 +1,60 @@
-type ColorType = {
-  [property: string]: string;
+export interface ITheme {
+  text: {
+    primary: string;
+    [property: string]: string;
+  };
+  bg: {
+    primary: string;
+    [property: string]: string;
+  };
+}
+
+export interface ITypography {
+  fontSizes: {
+    body: string;
+    heading: string;
+  };
+  fontWeights: {
+    body: number;
+    heading: number;
+  };
+}
+
+const darkTheme: ITheme = {
+  text: {
+    primary: '#f5f5f5',
+  },
+  bg: {
+    primary: '#262626',
+  },
+};
+const lightTheme: ITheme = {
+  text: {
+    primary: '#424242',
+  },
+  bg: {
+    primary: '#ffffff',
+  },
 };
 
-const darkColors: ColorType = {
-  primary: 'red',
-  background: '#fafafa',
-};
-const lightColors: ColorType = {};
-
-const fontSizes = {
-  small: '12px',
-  med: '24px',
+const typography: ITypography = {
+  fontSizes: {
+    body: '12px',
+    heading: '24px',
+  },
+  fontWeights: {
+    body: 400,
+    heading: 500,
+  },
 };
 
 export default {
   dark: {
-    colors: darkColors,
-    fontSizes,
+    ...typography,
+    ...darkTheme,
   },
   light: {
-    colors: lightColors,
-    fontSizes,
+    ...typography,
+    ...lightTheme,
   },
 };
