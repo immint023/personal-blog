@@ -1,18 +1,61 @@
-import React, { useState } from 'react';
-import { ThemeProvider } from 'styled-components';
+import React, { FC, useState } from 'react';
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
+import Head from 'next/head';
 
 import theme from '@styles/theme';
 import NavBar from './NavBar';
 import Switch from './Switch';
 
-const Layout = ({ children }) => {
+interface IProps {
+  title?: string;
+  children: FC;
+}
+
+const WrapperLayout = styled.div`
+  width: 60vw;
+  margin: auto;
+`;
+
+const GlobalStyle = createGlobalStyle`
+  html,
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Nunito', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+      Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    background-color: ${({ theme }) => theme.bg.primary};
+    color: ${({ theme }) => theme.text.primary};
+  }
+
+  * {
+    box-sizing: border-box;
+    transition: background-color, color 0.3s linear;
+  }
+`;
+
+const Layout: FC = ({ children, title = 'Mint Blog' }: IProps) => {
   const [isDark, setDark] = useState(false);
 
   return (
     <ThemeProvider theme={isDark ? theme.dark : theme.light}>
-      <NavBar />
-      <Switch onClick={() => setDark(!isDark)} />
-      {children}
+      <GlobalStyle />
+      <WrapperLayout>
+        <Head>
+          <title>{title}</title>
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
+          />
+          <link rel="shortcut icon" href="/static/favicon.svg" />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&display=swap"
+            rel="stylesheet"
+          ></link>
+        </Head>
+        <NavBar />
+        <Switch onClick={() => setDark(!isDark)} />
+        {children}
+      </WrapperLayout>
     </ThemeProvider>
   );
 };

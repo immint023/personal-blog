@@ -1,10 +1,12 @@
 export interface ITheme {
   text: {
     primary: string;
+    secondary: string;
     [property: string]: string;
   };
   bg: {
     primary: string;
+    secondary: string;
     [property: string]: string;
   };
 }
@@ -23,23 +25,28 @@ export interface ITypography {
 const darkTheme: ITheme = {
   text: {
     primary: '#f5f5f5',
+    secondary: '#ECEFF1',
   },
   bg: {
-    primary: '#262626',
+    primary: '#121212',
+    secondary: '#252525',
   },
 };
+
 const lightTheme: ITheme = {
   text: {
     primary: '#424242',
+    secondary: '#9E9E9E',
   },
   bg: {
     primary: '#ffffff',
+    secondary: '#ffffff',
   },
 };
 
 const typography: ITypography = {
   fontSizes: {
-    body: '12px',
+    body: '14px',
     heading: '24px',
   },
   fontWeights: {

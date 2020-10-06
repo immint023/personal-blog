@@ -5,11 +5,9 @@ import styled from 'styled-components';
 import { IPath } from '@interfaces/path';
 
 const NavBarWrapper = styled.div`
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   display: flex;
   justify-content: center;
+  margin: 8px 0;
 `;
 
 const NavItem = styled.a<{ active: boolean }>`
@@ -22,7 +20,7 @@ const NavItem = styled.a<{ active: boolean }>`
 const paths: IPath[] = [
   {
     name: 'Blogs',
-    slug: '/blogs',
+    slug: '/posts',
   },
   {
     name: 'About',
