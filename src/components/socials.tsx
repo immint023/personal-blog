@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 
 const WrapperSocial = styled.div`
@@ -9,7 +9,7 @@ const WrapperSocial = styled.div`
   }
 `;
 
-const Social = () => {
+const Social: FC = () => {
   return (
     <WrapperSocial>
       <a href="https://www.linkedin.com/in/ngo-minh-372a26162/" target="_blank">
