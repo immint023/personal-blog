@@ -32,7 +32,11 @@ const Ball = styled.div<{ isMoon: boolean }>`
   ${(props) => (props.isMoon ? 'left: 1px' : 'left: 23px')}
 `;
 
-const Switch = ({ onClick }) => {
+interface IProps {
+  onClick: () => any;
+}
+
+const Switch = ({ onClick }: IProps) => {
   const [isMoon, setMoon] = useState(false);
   const onClickSwitch = () => {
     setMoon(!isMoon);

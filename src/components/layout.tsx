@@ -8,7 +8,7 @@ import Switch from './Switch';
 
 interface IProps {
   title?: string;
-  children: FC;
+  children: JSX.Element[] | JSX.Element;
 }
 
 const WrapperLayout = styled.div`
@@ -33,7 +33,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-const Layout: FC = ({ children, title = 'Mint Blog' }: IProps) => {
+const Layout: FC<IProps> = ({ children, title = 'Mint Blog' }) => {
   const [isDark, setDark] = useState(false);
 
   return (
