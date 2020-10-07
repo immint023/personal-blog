@@ -1,13 +1,10 @@
 import Layout from '@components/Layout';
-import PostListItem from '@components/posts/PostListItem';
+import PostList from '@components/posts/PostList';
 
 const Posts = () => {
-  const arr = [1, 2, 3];
   return (
     <Layout>
-      {arr.map(() => (
-        <PostListItem />
-      ))}
+      <PostList posts={[]} />
     </Layout>
   );
 };

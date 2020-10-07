@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -40,21 +41,20 @@ const PreHeading = styled.p`
   margin: 0;
 `;
 
-const PostListItem = () => {
+export interface IProps {
+  heading: string;
+  preHeading: string;
+  thumbnailUrl: string;
+}
+
+const PostListItem: FC<IProps> = ({ heading, preHeading, thumbnailUrl }) => {
   return (
     <Wrapper>
       <WrapperIntro>
-        <Heading>
-          Sifting Through the Remains of a Home Destroyed by Fire
-        </Heading>
-        <PreHeading>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea
-        </PreHeading>
+        <Heading>{heading}</Heading>
+        <PreHeading>{preHeading}</PreHeading>
       </WrapperIntro>
-      <Thumbnail imageUrl="https://images.pexels.com/photos/2917442/pexels-photo-2917442.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />
+      <Thumbnail imageUrl={thumbnailUrl} />
     </Wrapper>
   );
 };
