@@ -30,13 +30,14 @@ const paths: IPath[] = [
 
 const NavBar = () => {
   const router = useRouter();
+
   return (
     <NavBarWrapper>
       {paths.map((path, index) => (
         <NavItem
           key={index}
           href={path.slug}
-          active={router.asPath === path.slug}
+          active={router.asPath.indexOf(path.slug) >= 0}
         >
           {path.name}
         </NavItem>

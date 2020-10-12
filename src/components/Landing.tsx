@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Social from './Socials';
+// import Social from './Socials';
 
 const AboutMeWrapper = styled.div`
   position: absolute;
@@ -17,7 +17,7 @@ const Landing = () => {
   return (
     <AboutMeWrapper>
       <h1>Hi There, I'm Minh 👨‍💻</h1>
-      <Social />
+      {/* <Social /> */}
     </AboutMeWrapper>
   );
 };

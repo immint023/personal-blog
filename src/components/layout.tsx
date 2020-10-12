@@ -6,7 +6,7 @@ import styled, {
 } from 'styled-components';
 import Head from 'next/head';
 
-import theme, { ITheme } from '@styles/theme';
+import theme from '@styles/theme';
 import NavBar from './NavBar';
 import Switch from './Switch';
 
@@ -23,6 +23,7 @@ const WrapperLayout = styled.div`
 const GlobalStyle = createGlobalStyle`
   html,
   body {
+    scroll-behavior: smooth;
     padding: 0;
     margin: 0;
     font-family: 'Nunito', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
@@ -33,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
 
   * {
     box-sizing: border-box;
-    transition: background-color, color 0.3s linear;
+    transition: background-color, color 0.1s linear;
   }
 `;
 
@@ -43,7 +44,7 @@ enum ThemeMode {
 }
 
 const Layout: FC<IProps> = ({ children, title = 'Mint Blog' }) => {
-  const [mode, setMode] = useState(ThemeMode.DARK);
+  const [mode, setMode] = useState(ThemeMode.LIGHT);
   let themeMode = mode === ThemeMode.DARK ? theme.dark : theme.light;
 
   const switchMode = () => {
