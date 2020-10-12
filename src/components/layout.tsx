@@ -1,8 +1,12 @@
-import React, { FC, useState } from 'react';
-import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
+import React, { FC, useEffect, useState } from 'react';
+import styled, {
+  ThemeProvider,
+  createGlobalStyle,
+  DefaultTheme,
+} from 'styled-components';
 import Head from 'next/head';
 
-import theme from '@styles/theme';
+import theme, { ITheme } from '@styles/theme';
 import NavBar from './NavBar';
 import Switch from './Switch';
 
@@ -33,11 +37,32 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+enum ThemeMode {
+  DARK,
+  LIGHT,
+}
+
 const Layout: FC<IProps> = ({ children, title = 'Mint Blog' }) => {
-  const [isDark, setDark] = useState(false);
+  const [mode, setMode] = useState(ThemeMode.DARK);
+  let themeMode = mode === ThemeMode.DARK ? theme.dark : theme.light;
+
+  const switchMode = () => {
+    switch (mode) {
+      case ThemeMode.DARK:
+        setMode(ThemeMode.LIGHT);
+        break;
+      case ThemeMode.LIGHT:
+        setMode(ThemeMode.DARK);
+        break;
+    }
+  };
+
+  useEffect(() => {
+    themeMode = mode === ThemeMode.DARK ? theme.dark : theme.light;
+  }, [mode]);
 
   return (
-    <ThemeProvider theme={isDark ? theme.dark : theme.light}>
+    <ThemeProvider theme={themeMode}>
       <GlobalStyle />
       <WrapperLayout>
         <Head>
@@ -53,7 +78,7 @@ const Layout: FC<IProps> = ({ children, title = 'Mint Blog' }) => {
           ></link>
         </Head>
         <NavBar />
-        <Switch onClick={() => setDark(!isDark)} />
+        <Switch onClick={switchMode} />
         {children}
       </WrapperLayout>
     </ThemeProvider>
