@@ -23,8 +23,8 @@ const paths: IPath[] = [
     slug: '/posts',
   },
   {
-    name: 'About',
-    slug: '/about',
+    name: 'Github',
+    slug: 'https://github.com/immint023',
   },
 ];
 
