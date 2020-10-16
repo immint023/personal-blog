@@ -15,6 +15,10 @@ const NavItem = styled.a<{ active: boolean }>`
   font-size: ${({ theme }) => theme.fontSizes.heading};
   text-decoration: ${(props) => (props.active ? 'underline' : 'none')};
   color: ${({ theme }) => theme.text.primary};
+
+  :hover {
+    color: ${({ theme }) => theme.text.grey};
+  }
 `;
 
 const paths: IPath[] = [

@@ -83,7 +83,7 @@ const Layout: FC<IProps> = ({ children, title = 'Mint Blog' }) => {
           ></link>
         </Head>
         <NavBar />
-        <Switch onClick={switchMode} />
+        {/* <Switch onClick={switchMode} /> */}
         {children}
       </WrapperLayout>
     </ThemeProvider>

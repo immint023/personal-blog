@@ -2,6 +2,7 @@ export interface ITheme {
   text: {
     primary: string;
     secondary: string;
+    grey: string;
     [property: string]: string;
   };
   bg: {
@@ -25,6 +26,7 @@ export interface ITypography {
 const darkTheme: ITheme = {
   text: {
     primary: '#f5f5f5',
+    grey: '#BDBDBD',
     secondary: '#ECEFF1',
   },
   bg: {
@@ -36,6 +38,7 @@ const darkTheme: ITheme = {
 const lightTheme: ITheme = {
   text: {
     primary: '#424242',
+    grey: '#BDBDBD',
     secondary: '#9E9E9E',
   },
   bg: {
