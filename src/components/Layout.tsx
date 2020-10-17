@@ -44,26 +44,26 @@ enum ThemeMode {
 }
 
 const Layout: FC<IProps> = ({ children, title = 'Mint Blog' }) => {
-  const [mode, setMode] = useState(ThemeMode.LIGHT);
-  let themeMode = mode === ThemeMode.DARK ? theme.dark : theme.light;
+  // const [mode, setMode] = useState(ThemeMode.LIGHT);
+  // let themeMode = mode === ThemeMode.DARK ? theme.dark : theme.light;
 
-  const switchMode = () => {
-    switch (mode) {
-      case ThemeMode.DARK:
-        setMode(ThemeMode.LIGHT);
-        break;
-      case ThemeMode.LIGHT:
-        setMode(ThemeMode.DARK);
-        break;
-    }
-  };
+  // const switchMode = () => {
+  //   switch (mode) {
+  //     case ThemeMode.DARK:
+  //       setMode(ThemeMode.LIGHT);
+  //       break;
+  //     case ThemeMode.LIGHT:
+  //       setMode(ThemeMode.DARK);
+  //       break;
+  //   }
+  // };
 
-  useEffect(() => {
-    themeMode = mode === ThemeMode.DARK ? theme.dark : theme.light;
-  }, [mode]);
+  // useEffect(() => {
+  //   themeMode = mode === ThemeMode.DARK ? theme.dark : theme.light;
+  // }, [mode]);
 
   return (
-    <ThemeProvider theme={themeMode}>
+    <ThemeProvider theme={theme.light}>
       <GlobalStyle />
       <WrapperLayout>
         <Head>
